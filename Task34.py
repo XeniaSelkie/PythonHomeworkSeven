@@ -11,23 +11,13 @@
 # **Ввод:** пара-ра-рам рам-пам-папам па-ра-па-да    
 #    **Вывод:** Парам пам-пам  
 
-count = 0
-helper = -1
-poem = input("Введите стихотворение ")
-list(poem)
-print(poem)
+poem = input("Введите стихотворение: ")
 
-vowels = set("аеёэояию")
-for letter in poem:
-    if letter != " ":
-        if letter in vowels:
-            count += 1
-    else: 
-        if count != helper and helper != -1:
-            print('Пам парам')
-            print (count, "1")
-        else:
-            helper = count 
-            print (count, "2")   
-            
-print(count)
+stroka = poem.split() 
+print(stroka)
+vowels = list(map(lambda stroka: sum(1 for letter in stroka.lower() if letter in "аеёэояию"), stroka))
+print(vowels)
+if len(set(vowels)) == 1: 
+    print("Парам пам-пам")
+else:
+    print("Пам парам")
